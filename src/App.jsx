@@ -1,43 +1,70 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+import Axios from 'axios';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState('');
+  const [level, setLevel] = useState('');
+  const [type, setType] = useState('');
+  const [attribute, setAttribute] = useState('');
+  const [cover, setCover] = useState('');
+  const [description, setDescription] = useState('');
+  const [moves, setMoves] = useState([]);
+
+  const addNewDigimon = () => {
+    Axios.post('http://localhost:8080/add-digimon', {name, level, type, attribute, cover, description})
+  }
+
+  const [digidex, setDigidex] = useState([]);
+  
+  useEffect( () => {
+    Axios.get('http://localhost:8080/get-digimon').then(res => {
+      setDigidex(res.data.digimons);
+    })
+  }, [addNewDigimon])
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div>
+      <label htmlFor="">Name: </label>
+      <input type="text" onChange={(e) => {setName(e.target.value)}} />
+      <br />
+      <label htmlFor="">Level: </label>
+      <input type="text" onChange={(e) => {setLevel(e.target.value)}} />
+      <br />
+      <label htmlFor="">Type: </label>
+      <input type="text" onChange={(e) => {setType(e.target.value)}} />
+      <br />
+      <label htmlFor="">Attribute: </label>
+      <input type="text" onChange={(e) => {setAttribute(e.target.value)}} />
+      <br />
+      <label htmlFor="">Cover: </label>
+      <input type="text" onChange={(e) => {setCover(e.target.value)}} />
+      <br />
+      <label htmlFor="">Description: </label>
+      <input type="text" onChange={(e) => {setDescription(e.target.value)}} />
+      <br />
+      <label htmlFor="">Moves: </label>
+      <input type="text" onChange={(e) => {setMoves(e.target.value)}} />
+      <br />
+      <button onClick={addNewDigimon}>Add new Digimon</button>
+      <br />
+      <br />
+      <br />
+      <br />
+      <h1>Digimon List</h1>
+      {
+        digidex.map((val, key) => {
+          return (
+            <div key={key} className="digimon">
+              <img src={val.img} alt="cover" />
+              <h1>{val.name}</h1>
+              <p>{val.level}</p>
+              <p>{val.type}</p>
+              <p>{val.attribute}</p>
+              <p>{val.description}</p>
+            </div>
+          )
+        })
+      }
     </div>
   )
 }
