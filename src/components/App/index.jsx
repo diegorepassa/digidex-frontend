@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
+import * as S from './styles'
+
 const getDigimons = gql`
   {
     digimons {
@@ -19,14 +21,16 @@ function App() {
   if (error) return <pre>{error.message}</pre>
 
   return (
+    <S.App>
     <select name='digimon'>
-      {data.digimons.map((digimon) => (
+      {/* {data.digimons.map((digimon) => (
         <option key={digimon.id} value={digimon.name}>
           {digimon.name}
         </option>
-      ))}
+      ))} */}
     </select>
-  );
+    </S.App>
+  )
 }
 
 export default App
