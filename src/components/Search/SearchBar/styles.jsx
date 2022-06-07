@@ -1,5 +1,6 @@
 import styled from 'styled-components';
+import { Input } from "@nextui-org/react";
 
-export const div = styled.div`
-
+export const input = styled(Input)`
+    background-color: blue;
 `;

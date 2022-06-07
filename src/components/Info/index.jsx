@@ -1,7 +1,8 @@
-export default function () {
+import * as S from "./styles"
+
+export default function Info() {
     return (
-      <div>
-          
-      </div>  
+      <S.div>
+      </S.div>  
     )
 }
