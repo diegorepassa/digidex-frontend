@@ -1,19 +1,19 @@
-import SearchBar from "./SearchBar"
-import SearchParams from "./SearchParams"
-import SearchRender from "./SearchRender"
-import { Spacer } from '@nextui-org/react';
+import SearchBar from "./SearchBar";
+import SearchParams from "./SearchParams";
+import SearchRender from "./SearchRender";
+import { Spacer, Container } from "@nextui-org/react";
 
-import * as S from "./styles"
+import * as S from "./styles";
 
 export default function Search() {
-    return(
-        <S.div>
-            <Spacer y={2} />
-            <SearchBar />
-            <Spacer y={2} />
-            <SearchParams />
-            <Spacer y={2} />
-            <SearchRender />
-        </S.div>
-    )
+  return (
+    <S.div>
+      <S.container>
+        <SearchBar />
+        <SearchParams />
+      </S.container>
+      <Spacer />
+      <SearchRender />
+    </S.div>
+  );
 }
