@@ -1,10 +1,15 @@
 import * as S from "./styles";
+import { useState, useEffect } from "react";
 import { LottiePlayer } from "@lottiefiles/lottie-player";
 import { Button } from "@nextui-org/react";
-import Test from './filter.svg';
+import Filter from './filter.svg';
+import FilterClicked from './filter-clicked.svg';
 
 export default function SearchParams() {
+
   return (
-      <object style={{width: 44}}  data={Test} />
+      <S.button>
+        <object style={{width: 44}}  data={Filter} />
+      </S.button>
   );
 }

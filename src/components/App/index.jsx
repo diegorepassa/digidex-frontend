@@ -8,8 +8,7 @@ function App() {
   return (
     <S.div>
       <Navbar />
-        <Search />
-        <Info />
+      <Search />
     </S.div>
   )
 }

@@ -8,10 +8,12 @@ import * as S from "./styles";
 export default function Search() {
   return (
     <S.div>
-      <S.container>
-        <SearchBar />
+      <S.wrapper>
+        <S.container>
+          <SearchBar />
+        </S.container>
         <SearchParams />
-      </S.container>
+      </S.wrapper>
       <Spacer />
       <SearchRender />
     </S.div>
