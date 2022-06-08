@@ -1,4 +1,7 @@
-import { Card, Col, Row, Button, Text } from "@nextui-org/react";
+import { Card, Col, Row, Text, Loading } from "@nextui-org/react";
+import Color, { Palette } from "color-thief-react";
+import Skeleton,  { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function CardTemplate(props) {
   return (
@@ -11,12 +14,31 @@ export default function CardTemplate(props) {
         </Col>
       </Card.Header> */}
       <Card.Body>
-        <Card.Image
+      <SkeletonTheme baseColor="#fff" highlightColor="#a1c4ed">
+        <Palette
           src={props.img}
-          height={300}
-          width="100%"
-          alt="Card background"
-        />
+          crossOrigin="anonymous"
+          format="hex"
+          colorCount={4}
+        >
+          {({ data, loading }) => {
+            if (loading) {
+              return (
+                <Skeleton style={{height: 300, paddingTop: 4}} />
+              )
+            }
+            return (
+                <Card.Image
+                  src={props.img}
+                  height={300}
+                  width="100%"
+                  alt="Card background"
+                  style={{ backgroundColor: `${data.at(0)}` }}
+                />
+            );
+          }}
+        </Palette>
+        </SkeletonTheme>
       </Card.Body>
       <Card.Footer
         css={{
@@ -27,15 +49,15 @@ export default function CardTemplate(props) {
       >
         <Row>
           <Col style={{ textAlign: "center" }} justify="center">
-          <Text
-                h1
-                size={20}
-                color="#2E3057"
-                weight="bold"
-                transform="uppercase"
-              >
-                {props.name}
-              </Text>
+            <Text
+              h1
+              size={20}
+              color="#0072f5"
+              weight="bold"
+              transform="uppercase"
+            >
+              {props.name}
+            </Text>
             <Text
               css={{ color: "inherit" }}
               size={12}

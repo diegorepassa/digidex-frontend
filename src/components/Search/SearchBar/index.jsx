@@ -5,10 +5,9 @@ import { Loading } from "@nextui-org/react";
 export default function SearchBar() {
   return (
     <S.input
+      shadow
       clearable
-      flat
       fullWidth
-      style={{ backgroundColor: "#EBF3F5" }}
       size="lg"
       placeholder="Name or ID"
       contentLeft={<FiSearch />}

@@ -7,7 +7,7 @@ export default function Logo() {
   return (
     <div>
       <Text
-        style={{ textAlign: "left", marginLeft: "1.5rem", color: "#2E3057" }}
+        style={{ textAlign: "left", marginLeft: "1.5rem", color: "#0072f5" }}
         h1
         weight="bold"
       >
@@ -15,8 +15,7 @@ export default function Logo() {
       </Text>
       <Text
         style={{ textAlign: "left", marginLeft: "1.5rem", color: "#2E3057" }}
-        p
-        weight="normal"
+        p={1}
       >
         Search for a Digimon by name or using ID
       </Text>

@@ -8,7 +8,7 @@ import FilterClicked from './filter-clicked.svg';
 export default function SearchParams() {
 
   return (
-      <S.button>
+      <S.button  aria-label="lottie">
         <object style={{width: 44}}  data={Filter} />
       </S.button>
   );

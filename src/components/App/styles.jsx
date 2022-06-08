@@ -5,5 +5,4 @@ export const div = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #F5FBFB;
 `;

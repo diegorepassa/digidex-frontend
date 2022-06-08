@@ -3,6 +3,8 @@ import { Container } from '@nextui-org/react';
 
 export const div = styled.div`
     width: 100%;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
 `;
 
 export const container = styled(Container)`

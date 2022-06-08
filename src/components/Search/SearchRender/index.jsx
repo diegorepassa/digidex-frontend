@@ -25,11 +25,11 @@ export default function SearchRender() {
   );
 
   if (error) return <pre>{error.message}</pre>;
-
+  
   return (
       <Grid.Container key={data.digimons.id} gap={2} justify="center">
         {data.digimons.map((digimon) => (
-          <Grid key={digimon.id} xs={6} sm={3}>
+          <Grid key={(digimon.id) + (digimon.name)} xs={6} sm={3}>
             <CardTemplate key={digimon.id} name={digimon.name} img={digimon.img} level={digimon.level} />
           </Grid>
         ))}
