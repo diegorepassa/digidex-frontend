@@ -6,15 +6,8 @@ import 'react-loading-skeleton/dist/skeleton.css'
 export default function CardTemplate(props) {
   return (
     <Card hoverable key={props.key} cover css={{ w: "100%" }}>
-      {/* <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
-        <Col>
-          <Text size={12} weight="bold" transform="uppercase" color="red">
-            New
-          </Text>
-        </Col>
-      </Card.Header> */}
       <Card.Body>
-      <SkeletonTheme baseColor="#fff" highlightColor="#a1c4ed">
+      <SkeletonTheme baseColor="#fff" highlightColor="#edefff">
         <Palette
           src={props.img}
           crossOrigin="anonymous"

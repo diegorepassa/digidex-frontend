@@ -1,5 +1,5 @@
 import SearchBar from "./SearchBar";
-import SearchParams from "./SearchParams";
+import SearchParams from "./SearchFilter";
 import SearchRender from "./SearchRender";
 import { Spacer, Container } from "@nextui-org/react";
 
